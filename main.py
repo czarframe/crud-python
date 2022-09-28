@@ -8,18 +8,24 @@ def bem_vindo():
     print("############################################")
 
 def adeus():
-    print("#################################")
+    print("\n#################################")
     print("########## FINALIZADO! ##########")
     print("#################################")
 
 def menu():
     while True:
         try:
-            print("\n1 - Cadastrar")
-            print("2 - Atualizar")
-            print("3 - Deletar")
-            print("4 - Listar")
-            print("5 - Fechar")
+            print("-----------------")
+            print("| 1 - Cadastrar |")
+            print("-----------------")
+            print("| 2 - Atualizar |")
+            print("-----------------")
+            print("| 3 - Deletar   |")
+            print("-----------------")
+            print("| 4 - Listar    |")
+            print("-----------------")
+            print("| 5 - Fechar    |")
+            print("-----------------\n")
             opcao = int(input("Digite uma opção: "))
             if opcao == 1:
                 cadastrar_aluno()
@@ -114,6 +120,9 @@ def set_curso(aluno):
 
 
 def cadastrar_aluno():
+    print("\n-------------")
+    print("| CADASTRAR |")
+    print("-------------")
     while True:
         set_id(aluno)
         set_all(aluno)
@@ -136,50 +145,50 @@ def atualizar_aluno():
     verificador = True
     try:
         if len(lista) > 0:
+            print("\n-------------")
+            print("| ATUALIZAR |")
+            print("-------------\n")
             id = int(input("Digite a ID do aluno a ser atualizado: "))
             for i in lista:
                 if i.get("id") == id:
                     verificador = True
-                    print("\n1 - Alterar nome")
-                    print("2 - Alterar idade")
-                    print("3 - Alterar CPF")
-                    print("4 - Alterar curso")
-                    print("5 - Alterar tudo")
-                    print("6 - Fechar")
-                    try:
-                        opcao = int(input("Digite uma opção: "))
-                        if opcao == 1:
-                            set_nome(i)
-                            print("\nNome atualizado com sucesso!")
-                            aluno.clear()
-                            break
-                        elif opcao == 2:
-                            set_idade(i)
-                            print("\nIdade atualizado com sucesso!")
-                            aluno.clear()
-                            break
-                        elif opcao == 3:
-                            set_cpf(i)
-                            print("\nCPF atualizado com sucesso!")
-                            aluno.clear()
-                            break
-                        elif opcao == 4:
-                            set_curso(i)
-                            print("\nCurso atualizado com sucesso!")
-                            aluno.clear()
-                            break
-                        elif opcao == 5:
-                            set_all(i)
-                            print("\nTodos os dados foram atualizados com sucesso!")
-                            aluno.clear()
-                            break
-                        elif opcao == 6:
-                            aluno.clear()
-                            break
-                        else:
+                    while True:
+                        print("\n---------------------")
+                        print("| 1 - Alterar nome  |")
+                        print("---------------------")
+                        print("| 2 - Alterar idade |")
+                        print("---------------------")
+                        print("| 3 - Alterar CPF   |")
+                        print("---------------------")
+                        print("| 4 - Alterar curso |")
+                        print("---------------------")
+                        print("| 5 - Alterar tudo  |")
+                        print("---------------------")
+                        print("| 6 - Fechar        |")
+                        print("---------------------\n")
+                        try:
+                            opcao = int(input("Digite uma opção: "))
+                            if opcao == 1:
+                                set_nome(i)
+                                print("\nNome atualizado com sucesso!")
+                            elif opcao == 2:
+                                set_idade(i)
+                                print("\nIdade atualizada com sucesso!")
+                            elif opcao == 3:
+                                set_cpf(i)
+                                print("\nCPF atualizado com sucesso!")
+                            elif opcao == 4:
+                                set_curso(i)
+                                print("\nCurso atualizado com sucesso!")
+                            elif opcao == 5:
+                                set_all(i)
+                                print("\nTodos os dados foram atualizados com sucesso!")
+                            elif opcao == 6:
+                                break
+                            else:
+                                print("\nDigite uma opção válida!\n")
+                        except ValueError:
                             print("\nDigite uma opção válida!\n")
-                    except ValueError:
-                        print("\nDigite uma opção válida!\n")
                 else:
                     verificador = False
         else:
@@ -195,29 +204,37 @@ def listar_alunos():
     if len(lista) > 0:
         while True:
             try:
-                print("\n1 - Listar tudo")
+                print("\n----------")
+                print("| LISTAR |")
+                print("----------\n")
+                print("1 - Listar tudo")
                 print("2 - Listar aluno")
                 print("3 - Fechar")
-                opcao = int(input("Digite uma opção: "))
+                opcao = int(input("\nDigite uma opção: "))
 
                 if opcao == 1:
                     for i in lista:
-                        print("\nId: {}".format(i.get("id")))
-                        print("Nome: {}".format(i.get("nome")))
-                        print("Idade: {}".format(i.get("idade")))
-                        print("CPF: {}".format(i.get("cpf")))
-                        print("Curso: {}".format(i.get("curso")))
+                        print("\n------------------------")
+                        print("| Id: {}".format(i.get("id")))
+                        print("| Nome: {}".format(i.get("nome")))
+                        print("| Idade: {}".format(i.get("idade")))
+                        print("| CPF: {}".format(i.get("cpf")))
+                        print("| Curso: {}".format(i.get("curso")))
+                        print("------------------------")
+                        verificador = True
 
                 elif opcao == 2:
                     try:
                         id = int(input("\nDigite o ID do aluno a ser listado: "))
                         for i in lista:
                             if i.get("id") == id:
-                                print("\nId: {}".format(i.get("id")))
-                                print("Nome: {}".format(i.get("nome")))
-                                print("Idade: {}".format(i.get("idade")))
-                                print("CPF: {}".format(i.get("cpf")))
-                                print("Curso: {}".format(i.get("curso")))
+                                print("\n------------------------")
+                                print("| Id: {}".format(i.get("id")))
+                                print("| Nome: {}".format(i.get("nome")))
+                                print("| Idade: {}".format(i.get("idade")))
+                                print("| CPF: {}".format(i.get("cpf")))
+                                print("| Curso: {}".format(i.get("curso")))
+                                print("------------------------")
                                 verificador = True
                                 break
                             else:
@@ -233,7 +250,7 @@ def listar_alunos():
             except ValueError:
                 print("\nDigite uma opção válida!")
     else:
-        print("\nA lista está vazia!")
+        print("\nA lista está vazia!\n")
 
 
 def deletar_aluno():
@@ -241,10 +258,13 @@ def deletar_aluno():
     if len(lista) > 0:
         while True:
             try:
-                print("\n1 - Deletar aluno")
+                print("\n-----------")
+                print("| DELETAR |")
+                print("-----------\n")
+                print("1 - Deletar aluno")
                 print("2 - Deletar tudo")
                 print("3 - Fechar")
-                opcao = int(input("Digite uma opção: "))
+                opcao = int(input("\nDigite uma opção: "))
                 if opcao == 1:
                     try:
                         id = int(input("\nID do aluno a ser deletado: "))
@@ -271,7 +291,7 @@ def deletar_aluno():
             except ValueError:
                 print("\nDigite uma opção válida!\n")
     else:
-        print("\nA lista está vazia!")
+        print("\nA lista está vazia!\n")
 
 
 if __name__ == "__main__":
